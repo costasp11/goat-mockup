@@ -20,7 +20,7 @@ function DealDetails() {
         }}
       >
         <SideBar /> {/* The sidebar component */}
-        {/* deal summary / ai gen follow up  missing info */}
+        {/* full container of content*/}
         <Box
           className="deal-details-content"
           sx={{
@@ -33,7 +33,20 @@ function DealDetails() {
         >
           {/* Header of page */}
           <DealDetailsHeader />
-          <DealSummary />
+          {/* Container with left 3 cards */}
+          <Box
+            className="deal-details-left-cards"
+            sx={{
+              display: "flex",
+              flexDirection: "column",
+              gap: 3,
+              width: "65%",
+            }}
+          >
+            <DealSummary />
+            {/* <AI generated followup/> */}
+            {/* <MissingInfo/> */}
+          </Box>
         </Box>
       </Box>
     </>
