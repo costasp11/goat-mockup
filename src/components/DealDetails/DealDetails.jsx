@@ -1,9 +1,10 @@
 import React from "react";
 import SideBar from "../SideBar/SideBar";
 import { Box } from "@mui/material";
-import DealSummary from "../CRMComponents/DealSummary";
-import DealDetailsHeader from "../CRMComponents/DealDetailsHeader";
-import InsightsCard from "../CRMComponents/InsightsCard";
+import DealSummary from "../DealDetailsComponents/DealSummary";
+import DealDetailsHeader from "../DealDetailsComponents/DealDetailsHeader";
+import InsightsCard from "../DealDetailsComponents/InsightsCard";
+import MissingInformationCard from "../DealDetailsComponents/MissingInformationCard";
 
 function DealDetails() {
   return (
@@ -29,7 +30,7 @@ function DealDetails() {
             flexDirection: "column", // Arrange header, cards, and data in a column
             flexGrow: 1, // Allow this column to take up remaining horizontal space
             gap: 2,
-            margin: "75px",
+            margin: "30px",
           }}
         >
           {/* Header of page */}
@@ -46,6 +47,7 @@ function DealDetails() {
           >
             <DealSummary />
             <InsightsCard />
+            <MissingInformationCard />
             {/* <AI generated followup/> */}
             {/* <MissingInfo/> */}
           </Box>

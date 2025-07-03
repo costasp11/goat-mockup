@@ -1,5 +1,14 @@
 import React from "react";
-import { Box, Card, Typography, Grid, Divider, Chip } from "@mui/material";
+import { AutoAwesome, Business, Person, Analytics, AttachMoney} from "@mui/icons-material";
+import {
+  Box,
+  Card,
+  Typography,
+  Grid,
+  Divider,
+  Chip,
+  CardHeader,
+} from "@mui/material";
 import { green } from "@mui/material/colors";
 
 function DealSummary() {
@@ -7,7 +16,7 @@ function DealSummary() {
     <>
       <Card
         sx={{
-          padding: 3,
+          padding: 1,
           boxShadow: 5,
           borderRadius: 2,
           border: "1px solid",
@@ -16,9 +25,11 @@ function DealSummary() {
       >
         {/* card header */}
         <Box className="card-header" sx={{ display: "flex" }}>
-          <Typography variant="h5" sx={{ padding: 2, color: "text.primary" }}>
-            Deal Summary
-          </Typography>
+          <CardHeader
+            avatar={<AttachMoney color="primary" />}
+            title="Deal Summary"
+            subheader="Basic details about the deal opportunity"
+          />
         </Box>
 
         {/* card content */}
@@ -27,23 +38,23 @@ function DealSummary() {
             {/* Top row - 4 equal columns */}
             <Grid size={3}>
               <Typography
-                variant="h6"
-                color="text.secondary"
-                fontWeight="bold"
+                variant="h3"
+                fontSize={17}
+                color="text.primary"
                 mb={0.3}
               >
                 Value
               </Typography>
-              <Typography variant="h5" sx={{ color: green[300] }}>
+              <Typography variant="subtitle1" sx={{ color: "#49DE80" }}>
                 $125,000
               </Typography>
             </Grid>
             <Grid size={3}>
               <Typography
-                variant="h6"
-                color="text.secondary"
-                fontWeight={"bold"}
-                mb={0.6}
+                variant="h3"
+                fontSize={17}
+                color="text.primary"
+                mb={0.5}
               >
                 Stage
               </Typography>
@@ -52,38 +63,33 @@ function DealSummary() {
                 size="small"
                 sx={{
                   backgroundColor: "primary",
-                  color: "",
                   fontWeight: "medium",
                 }}
               />{" "}
             </Grid>
             <Grid size={3}>
               <Typography
-                variant="h6"
-                color="text.secondary"
-                fontWeight={"bold"}
+                variant="h3"
+                fontSize={17}
+                color="text.primary"
                 mb={0.6}
               >
                 Close Date
               </Typography>
-              <Typography
-                variant="body1"
-                fontWeight="bold"
-                color="text.secondary"
-              >
+              <Typography variant="subtitle1" color="text.secondary">
                 2024-01-15
               </Typography>
             </Grid>
             <Grid size={3}>
               <Typography
-                variant="h6"
-                color="text.secondary"
-                fontWeight={"bold"}
+                variant="h3"
+                fontSize={17}
+                color="text.primary"
                 mb={0.6}
               >
                 Days Left
               </Typography>
-              <Typography variant="h6" color="orange" fontWeight="bold">
+              <Typography variant="subtitle1" color="orange">
                 12 days
               </Typography>
             </Grid>
@@ -96,27 +102,29 @@ function DealSummary() {
             {/* Bottom row - 2 equal columns */}
             <Grid size={6}>
               <Typography
-                variant="h6"
+                variant="h3"
+                fontSize={17}
                 color="text.primary"
-                fontWeight={"bold"}
                 mb={0.6}
               >
                 Company
               </Typography>
-              <Typography variant="body1" color="text.secondary">
+              <Typography variant="subtitle1" color="text.secondary">
                 Acme Corp
               </Typography>
             </Grid>
             <Grid size={6}>
               <Typography
-                variant="h6"
-                color="text.secondary"
-                fontWeight={"bold"}
+                variant="h3"
+                fontSize={17}
+                color="text.primary"
                 mb={0.6}
               >
                 Primary Contact
               </Typography>
-              <Typography variant="body1">John Smith</Typography>
+              <Typography variant="subtitle 1" color="text.secondary">
+                John Smith
+              </Typography>
             </Grid>
           </Grid>
         </Box>

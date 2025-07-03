@@ -1,5 +1,7 @@
-import { Typography, Box, Card, TextField, Button, Chip } from "@mui/material";
+import { Typography, Box, Card, TextField, Button, Chip, CardHeader } from "@mui/material";
+import { AutoAwesome, Business, Person, Analytics, AttachEmail} from "@mui/icons-material";
 import React from "react";
+
 
 function InsightsCard() {
   return (
@@ -8,7 +10,7 @@ function InsightsCard() {
       <Card
         className="insights-card"
         sx={{
-          padding: 3,
+          padding: 2.4,
           boxShadow: 5,
           borderRadius: 2,
           border: "1px solid",
@@ -18,16 +20,12 @@ function InsightsCard() {
       >
         {/* Card Header */}
         <Box className="card-header" sx={{ mb: 3 }}>
-          <Typography
-            variant="h5"
-            sx={{
-              fontWeight: "bold",
-              color: "text.primary",
-              mb: 1,
-            }}
-          >
-            AI-Generated Follow Up
-          </Typography>
+            <CardHeader
+              avatar={<AttachEmail color="primary" />}
+              title="AI Generated Follow-Up"
+              subheader="Personalized email draft based on deal context and contact preferences"
+              sx={{marginBottom: 1.4}}
+            />
           <Chip
             label="Smart Draft"
             size="small"
