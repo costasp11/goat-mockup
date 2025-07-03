@@ -8,7 +8,7 @@ function DealDetailsHeader() {
         className="deal-details-header"
         sx={{
           display: "flex",
-          padding: 2,
+          padding: 0.5,
           justifyContent: "space-between",
           alignItems: "center",
         }}

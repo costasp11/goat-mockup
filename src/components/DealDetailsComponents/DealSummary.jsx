@@ -33,7 +33,7 @@ function DealSummary() {
         </Box>
 
         {/* card content */}
-        <Box className="card-content" sx={{ padding: 2, flexGrow: 1 }}>
+        <Box className="card-content" sx={{ marginLeft: 3, marginBottom: 1.3, flexGrow: 1 }}>
           <Grid container spacing={2}>
             {/* Top row - 4 equal columns */}
             <Grid size={3}>

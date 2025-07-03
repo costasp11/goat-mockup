@@ -38,7 +38,7 @@ function InsightsCard() {
         <Box className="card-content" sx={{ mb: 3 }}>
           <TextField
             multiline
-            rows={8}
+            rows={5}
             variant="outlined"
             sx={{
               width: "100%",
