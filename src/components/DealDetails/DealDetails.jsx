@@ -3,6 +3,7 @@ import SideBar from "../SideBar/SideBar";
 import { Box } from "@mui/material";
 import DealSummary from "../CRMComponents/DealSummary";
 import DealDetailsHeader from "../CRMComponents/DealDetailsHeader";
+import InsightsCard from "../CRMComponents/InsightsCard";
 
 function DealDetails() {
   return (
@@ -44,6 +45,7 @@ function DealDetails() {
             }}
           >
             <DealSummary />
+            <InsightsCard />
             {/* <AI generated followup/> */}
             {/* <MissingInfo/> */}
           </Box>

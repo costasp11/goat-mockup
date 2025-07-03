@@ -5,7 +5,15 @@ import { green } from "@mui/material/colors";
 function DealSummary() {
   return (
     <>
-      <Card sx={{ padding: 2 }}>
+      <Card
+        sx={{
+          padding: 3,
+          boxShadow: 5,
+          borderRadius: 2,
+          border: "1px solid",
+          borderColor: "divider",
+        }}
+      >
         {/* card header */}
         <Box className="card-header" sx={{ display: "flex" }}>
           <Typography variant="h5" sx={{ padding: 2, color: "text.primary" }}>
@@ -18,7 +26,12 @@ function DealSummary() {
           <Grid container spacing={2}>
             {/* Top row - 4 equal columns */}
             <Grid size={3}>
-              <Typography variant="h6" color="text.secondary" fontWeight="bold" mb={0.3}>
+              <Typography
+                variant="h6"
+                color="text.secondary"
+                fontWeight="bold"
+                mb={0.3}
+              >
                 Value
               </Typography>
               <Typography variant="h5" sx={{ color: green[300] }}>
@@ -49,11 +62,17 @@ function DealSummary() {
                 variant="h6"
                 color="text.secondary"
                 fontWeight={"bold"}
-                mb ={0.6}
+                mb={0.6}
               >
                 Close Date
               </Typography>
-              <Typography variant="body1" fontWeight="bold" color="text.secondary">2024-01-15</Typography>
+              <Typography
+                variant="body1"
+                fontWeight="bold"
+                color="text.secondary"
+              >
+                2024-01-15
+              </Typography>
             </Grid>
             <Grid size={3}>
               <Typography
@@ -64,7 +83,9 @@ function DealSummary() {
               >
                 Days Left
               </Typography>
-              <Typography variant="h6" color="orange" fontWeight="bold" >12 days</Typography>
+              <Typography variant="h6" color="orange" fontWeight="bold">
+                12 days
+              </Typography>
             </Grid>
 
             {/* Divider - full width (12) */}
@@ -82,7 +103,9 @@ function DealSummary() {
               >
                 Company
               </Typography>
-              <Typography variant="body1"  color="text.secondary">Acme Corp</Typography>
+              <Typography variant="body1" color="text.secondary">
+                Acme Corp
+              </Typography>
             </Grid>
             <Grid size={6}>
               <Typography
