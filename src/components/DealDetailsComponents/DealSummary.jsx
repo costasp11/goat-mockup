@@ -11,7 +11,7 @@ import {
 } from "@mui/material";
 import { green } from "@mui/material/colors";
 
-function DealSummary() {
+function DealSummary({value, stage, closeDate, daysLeft, company, primaryContact}) {
   return (
     <>
       <Card
@@ -47,7 +47,7 @@ function DealSummary() {
                 Value
               </Typography>
               <Typography variant="subtitle1" sx={{ color: "#49DE80" }}>
-                $125,000
+                {value}
               </Typography>
             </Grid>
             <Grid size={3}>
@@ -61,7 +61,7 @@ function DealSummary() {
                 Stage
               </Typography>
               <Chip
-                label="Negotiation"
+                label={stage}
                 size="small"
                 sx={{
                   backgroundColor: "primary",
@@ -80,7 +80,7 @@ function DealSummary() {
                 Close Date
               </Typography>
               <Typography variant="subtitle1" color="text.secondary">
-                2024-01-15
+                {closeDate}
               </Typography>
             </Grid>
             <Grid size={3}>
@@ -94,7 +94,7 @@ function DealSummary() {
                 Days Left
               </Typography>
               <Typography variant="subtitle1" color="orange">
-                12 days
+                {daysLeft} days
               </Typography>
             </Grid>
 
@@ -115,7 +115,7 @@ function DealSummary() {
                 Company
               </Typography>
               <Typography fontSize={15} variant="subtitle1" color="text.secondary">
-                Acme Corp
+                {company}
               </Typography>
             </Grid>
             <Grid size={6}>
@@ -129,7 +129,7 @@ function DealSummary() {
                 Primary Contact
               </Typography>
               <Typography fontSize={15} variant="subtitle 1" color="text.secondary">
-                John Smith
+                {primaryContact}
               </Typography>
             </Grid>
           </Grid>

@@ -49,7 +49,14 @@ function DealDetails() {
               }}
             >
               {/* Left-side component cards */}
-              <DealSummary />
+              <DealSummary 
+              value = "$125,000"
+              stage = "Negotiation"
+              closeDate = "2024-01-15"
+              daysLeft = "12"
+              company = "Acme Corp"
+              primaryContact = "John Smith"
+              />
               <InsightsCard />
               <MissingInformationCard />
             </Box>
@@ -58,7 +65,12 @@ function DealDetails() {
             <Box className="deal-details-right-cards" sx={{ display: "flex", width: "35%", flexDirection: "column", gap: 3}}>
               {/* INPUT COMPONENTS HERE */}
               <RecentActivity />
-              <ContactPersonality/>
+              <ContactPersonality
+              communicationStyle={"Direct & Analytical"}
+              responseTime={"Within 2-4 hours"}
+              decisionMaking={"Data Driven, consensus-seeking"}
+              objectionStyle={"Price-focused, ROI-conscious"}
+              />
             </Box>
           </Box>
         </Box>

@@ -2,6 +2,7 @@ import React from "react";
 import ContactPersonalityCards from "./ContactPersonalityCards";
 import { Box, Card, CardHeader, Typography, Divider } from "@mui/material";
 import PersonIcon from "@mui/icons-material/Person";
+import { object } from "prop-types";
 
 function ContactPersonality({communicationStyle, responseTime, decisionMaking, objectionStyle}) {
   return (
@@ -25,7 +26,7 @@ function ContactPersonality({communicationStyle, responseTime, decisionMaking, o
       {/* CARD CONTENT CONTAINER*/}
       <Box
         className="card-content"
-        sx={{ display: "flex", flexDirection: "column", marginLeft: 5, gap: 2, mariginBotton: 3}}
+        sx={{ display: "flex", flexDirection: "column", marginLeft: 2, gap: 2, mariginBotton: 3}}
       >
         {/* INDIVIDUAL CARD */}
         <Box>
@@ -46,8 +47,7 @@ function ContactPersonality({communicationStyle, responseTime, decisionMaking, o
               marginBottom: 1,
             }}
           >
-            Direct & Analytical
-            {/* TODO - {communicationStyle} */}
+            {communicationStyle}
           </Typography>
           <Divider variant="" />
         </Box>
@@ -69,8 +69,7 @@ function ContactPersonality({communicationStyle, responseTime, decisionMaking, o
               marginBottom: 1,
             }}
           >
-            Within 2-4 hours
-            {/* TODO - {communicationStyle} */}
+            {responseTime}
           </Typography>
           <Divider variant="" />
         </Box>
@@ -92,8 +91,7 @@ function ContactPersonality({communicationStyle, responseTime, decisionMaking, o
               marginBottom: 1,
             }}
           >
-            Data Driven, consensus-seeking
-            {/* TODO - {communicationStyle} */}
+            {decisionMaking}
           </Typography>
           <Divider variant="" />
         </Box>
@@ -115,8 +113,7 @@ function ContactPersonality({communicationStyle, responseTime, decisionMaking, o
               marginBottom: 9.5,
             }}
           >
-           Price-focused, ROI-conscious
-            {/* TODO - {communicationStyle} */}
+           {objectionStyle}
           </Typography>
         </Box>
       </Box>
