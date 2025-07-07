@@ -82,7 +82,7 @@ function InsightsCard() {
               Regenerate
             </Button>
             <Button variant="contained" size="small">
-              Use Draft
+              Send Follow Up
             </Button>
           </Box>
         </Box>

@@ -42,10 +42,6 @@ function DealDetailsHeader() {
               border: "1px solid rgba(211, 47, 47, 0.2)", // Optional: subtle border
             }}
           />
-
-          <Button variant="contained" size="small" sx={{ fontWeight: "bold" }}>
-            Send Follow Up
-          </Button>
         </div>
       </Box>
     </>
