@@ -5,8 +5,6 @@ import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import { Menu } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 
-
-
 import {
   Box,
   Button,
@@ -16,7 +14,7 @@ import {
   ListItemIcon,
   ListItemText,
   Typography,
-  Divider
+  Divider,
 } from "@mui/material";
 
 import { useState } from "react";
@@ -25,76 +23,104 @@ import React from "react";
 const SideBar = () => {
   // use state hooks, click will set active item to the clicked item
   const [activeItem, setActiveItem] = useState("Overview");
+  const [open, setOpen] = useState(true); // open state for drawer
+
+  // toggleDrawerOpen function to toggle the open state of the drawer
+  const toggleDrawerOpen = () => {
+    if (!open) {
+      setOpen(true);
+    } else {
+      setOpen(false);
+    }
+  };
+
   return (
+    <>
+    
     <Box
+      open
       className="sidebar-container"
       sx={{
-        width: 300,
+        width: open ? 300 : 80,
         backgroundColor: "#121621", // TODO: update color later
         height: "100vh",
         display: "flex",
         flexDirection: "column",
         boxShadow: "0 0 30px rgba(0, 0, 0, 0.5)", // add shadow to the right border
         borderRadius: "5px",
+        transition: "width 0.3s ease",
+        overflow: "hidden",
       }}
     >
       {/* Top Logo of SideBar */}
       <Box
-        sx={{ padding: 2, display: "flex", justifyContent: "space-between"}}
+        sx={{ padding: 2, display: "flex", justifyContent: open ? "space-between" : "center" }}
       >
-        <Typography
-          variant="h6"
-          sx={{ color: "white", textAlign: "center", pt: .6}}
-        >
-          CRM Copilot {/* TODO: update logo */}
-        </Typography>
+        {open && (
+          <Typography
+            variant="h6"
+            sx={{ color: "white", textAlign: "center", pt: 0.6 }}
+          >
+            CRM Copilot {/* TODO: update logo */}
+          </Typography>
+        )}
         <IconButton
-        sx={{
-          borderRadius: "8px",
-          width: "40px",
-          height: "40px",
-          "&:hover":{
-            backgroundColor: "rgba(71, 159, 246, 0.3)"
-          }
-        }}
-        
-        
+          sx={{
+            borderRadius: "8px",
+            width: "40px",
+            height: "40px",
+            "&:hover": {
+              backgroundColor: "rgba(71, 159, 246, 0.3)",
+            },
+          }}
+          onClick={toggleDrawerOpen} // toggle drawer open state
         >
-          <Menu/>
+          <Menu />
         </IconButton>
       </Box>
 
       {/* Create Deal Button */}
-      <Box sx={{ p: 1, display: "flex", justifyContent: "center" }}>
-        <Button
-          sx={{ width: "85%" }}
-          variant="contained"
-          size="medium"
-          color="primary"
-        >
-          Create Deal
-        </Button>
-      </Box>
-      <Divider variant="middle" sx={{ mt: 1, mb: 1, backgroundColor: "rgba(255, 255, 255, 0.1)" }} />
+      {open && (
+        <Box sx={{ p: 1, display: "flex", justifyContent: "center" }}>
+          <Button
+            sx={{ width: "85%" }}
+            variant="contained"
+            size="medium"
+            color="primary"
+          >
+            Create Deal
+          </Button>
+        </Box>
+      )}
+      {open && (
+        <Divider
+          variant="middle"
+          sx={{ mt: 1, mb: 1, backgroundColor: "rgba(255, 255, 255, 0.1)" }}
+        />
+      )}
 
       {/* Main Navigation */}
-      <List sx={{ flexGrow: 1, padding: 1, paddingLeft: 3, paddingRight: 3 }}>
+      <List sx={{ flexGrow: 1, padding: 1, paddingLeft: open ? 3 : 1, paddingRight: open ? 3 : 1 }}>
         {/* Section Header */}
-        <Typography
-          variant="h6"
-          sx={{
-            color: "rgba(221, 212, 212, 0.83)",
-            mb: 1,
-            fontSize: "0.9rem",
-            fontWeight: "bold",
-          }}
-        >
-          Main Navigation
-        </Typography>
+        {open && (
+          <Typography
+            variant="h6"
+            sx={{
+              color: "rgba(221, 212, 212, 0.83)",
+              mb: 1,
+              fontSize: "0.9rem",
+              fontWeight: "bold",
+            }}
+          >
+            Main Navigation
+          </Typography>
+        )}
         <ListItem disablePadding sx={{ mb: 0.7 }}>
           <ListItemButton
             sx={{
               borderRadius: "7px",
+              justifyContent: open ? "flex-start" : "center",
+              px: open ? 2 : 0,
               "&:hover": {
                 backgroundColor: "primary.dark", // change background color on hover of the button
                 "& .MuiListItemIcon-root": {
@@ -122,16 +148,18 @@ const SideBar = () => {
           >
             {" "}
             {/* TODO: react router navigation*/}
-            <ListItemIcon sx={{ color: "#A6ACB9", minWidth: "33px" }}>
+            <ListItemIcon sx={{ color: "#A6ACB9", minWidth: open ? "33px" : "auto", mr: open ? 2 : 0 }}>
               <SpaceDashboardOutlined fontSize="small" />
             </ListItemIcon>
-            <ListItemText primary="Overview" sx={{ color: "#A6ACB9" }} />
+            {open && <ListItemText primary="Overview" sx={{ color: "#A6ACB9" }} />}
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding sx={{ mb: 0.7 }}>
           <ListItemButton
             sx={{
               borderRadius: "7px",
+              justifyContent: open ? "flex-start" : "center",
+              px: open ? 2 : 0,
               "&:hover": {
                 backgroundColor: "primary.dark", // change background color on hover of the button
                 "& .MuiListItemIcon-root": {
@@ -157,16 +185,18 @@ const SideBar = () => {
             }}
           >
             {" "}
-            <ListItemIcon sx={{ color: "#A6ACB9", minWidth: "33px" }}>
+            <ListItemIcon sx={{ color: "#A6ACB9", minWidth: open ? "33px" : "auto", mr: open ? 2 : 0 }}>
               <AnalyticsOutlinedIcon fontSize="small" />
             </ListItemIcon>
-            <ListItemText primary="Analytics" sx={{ color: "#A6ACB9" }} />
+            {open && <ListItemText primary="Analytics" sx={{ color: "#A6ACB9" }} />}
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding sx={{ mb: 0.7 }}>
           <ListItemButton
             sx={{
               borderRadius: "7px",
+              justifyContent: open ? "flex-start" : "center",
+              px: open ? 2 : 0,
               "&:hover": {
                 backgroundColor: "primary.dark", // change background color on hover of the button
                 "& .MuiListItemIcon-root": {
@@ -192,16 +222,18 @@ const SideBar = () => {
             }}
           >
             {" "}
-            <ListItemIcon sx={{ color: "#A6ACB9", minWidth: "33px" }}>
+            <ListItemIcon sx={{ color: "#A6ACB9", minWidth: open ? "33px" : "auto", mr: open ? 2 : 0 }}>
               <AttachMoney fontSize="small" />
             </ListItemIcon>
-            <ListItemText primary="Deals" sx={{ color: "#A6ACB9" }} />
+            {open && <ListItemText primary="Deals" sx={{ color: "#A6ACB9" }} />}
           </ListItemButton>
         </ListItem>
         <ListItem disablePadding sx={{ mb: 0.7 }}>
           <ListItemButton
             sx={{
               borderRadius: "7px",
+              justifyContent: open ? "flex-start" : "center",
+              px: open ? 2 : 0,
               "&:hover": {
                 backgroundColor: "primary.dark", // change background color on hover of the button
                 "& .MuiListItemIcon-root": {
@@ -227,20 +259,22 @@ const SideBar = () => {
             }}
           >
             {" "}
-            <ListItemIcon sx={{ color: "#A6ACB9", minWidth: "33px" }}>
+            <ListItemIcon sx={{ color: "#A6ACB9", minWidth: open ? "33px" : "auto", mr: open ? 2 : 0 }}>
               <PeopleAltOutlinedIcon fontSize="small" />
             </ListItemIcon>
-            <ListItemText primary="Contacts" sx={{ color: "#A6ACB9" }} />
+            {open && <ListItemText primary="Contacts" sx={{ color: "#A6ACB9" }} />}
           </ListItemButton>
         </ListItem>
       </List>
 
       {/* Footer List */}
-      <List sx={{ padding: 1, paddingLeft: 3, paddingRight: 3 }}>
+      <List sx={{ padding: 1, paddingLeft: open ? 3 : 1, paddingRight: open ? 3 : 1 }}>
         <ListItem disablePadding sx={{ mb: 0.7 }}>
           <ListItemButton
             sx={{
               borderRadius: "7px",
+              justifyContent: open ? "flex-start" : "center",
+              px: open ? 2 : 0,
               "&:hover": {
                 backgroundColor: "primary.dark", // change background color on hover of the button
                 "& .MuiListItemIcon-root": {
@@ -265,14 +299,17 @@ const SideBar = () => {
               setActiveItem("Settings");
             }}
           >
-            <ListItemIcon sx={{ color: "#A6ACB9", minWidth: "33px" }}>
+            <ListItemIcon sx={{ color: "#A6ACB9", minWidth: open ? "33px" : "auto", mr: open ? 2 : 0 }}>
               <SettingsOutlinedIcon fontSize="small" />
             </ListItemIcon>
-            <ListItemText primary="Settings" sx={{ color: "#A6ACB9" }} />
+            {open && <ListItemText primary="Settings" sx={{ color: "#A6ACB9" }} />}
           </ListItemButton>
         </ListItem>
       </List>
     </Box>
+    
+
+    </>
   );
 };
 
