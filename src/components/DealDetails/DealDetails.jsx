@@ -5,12 +5,12 @@ import DealSummary from "../DealDetailsComponents/DealSummary";
 import DealDetailsHeader from "../DealDetailsComponents/DealDetailsHeader";
 import InsightsCard from "../DealDetailsComponents/InsightsCard";
 import MissingInformationCard from "../DealDetailsComponents/MissingInformationCard";
-
+import RecentActivity from "../DealDetailsComponents/RecentActivity";
+import ContactPersonality from "../DealDetailsComponents/ContactPersonality";
 function DealDetails() {
   return (
     <>
-      {/* page-container ] */}
-
+      {/* page-container */}
       <Box
         className="deal-details-page"
         sx={{
@@ -22,7 +22,7 @@ function DealDetails() {
         }}
       >
         <SideBar /> {/* The sidebar component */}
-        {/* full container of content*/}
+        {/* full container of content (excluding sidebar)*/}
         <Box
           className="deal-details-content"
           sx={{
@@ -35,21 +35,31 @@ function DealDetails() {
         >
           {/* Header of page */}
           <DealDetailsHeader />
-          {/* Container with left 3 cards */}
-          <Box
-            className="deal-details-left-cards"
-            sx={{
-              display: "flex",
-              flexDirection: "column",
-              gap: 3,
-              width: "65%",
-            }}
-          >
-            <DealSummary />
-            <InsightsCard />
-            <MissingInformationCard />
-            {/* <AI generated followup/> */}
-            {/* <MissingInfo/> */}
+
+          {/* Cards-container layout */}
+          <Box className="cards-container" sx={{ display: "flex", gap: 3 }}>
+            {/* Container with left 3 cards */}
+            <Box
+              className="deal-details-left-cards"
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: 3,
+                width: "65%",
+              }}
+            >
+              {/* Left-side component cards */}
+              <DealSummary />
+              <InsightsCard />
+              <MissingInformationCard />
+            </Box>
+            
+            {/* Container with right 2 cards */}
+            <Box className="deal-details-right-cards" sx={{ display: "flex", width: "35%", flexDirection: "column", gap: 3}}>
+              {/* INPUT COMPONENTS HERE */}
+              <RecentActivity />
+              <ContactPersonality/>
+            </Box>
           </Box>
         </Box>
       </Box>

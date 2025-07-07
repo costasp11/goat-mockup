@@ -38,10 +38,11 @@ function DealSummary() {
             {/* Top row - 4 equal columns */}
             <Grid size={3}>
               <Typography
-                variant="h3"
-                fontSize={17}
+                variant="h6"
+                fontSize={14}
                 color="text.primary"
                 mb={0.3}
+                fontWeight={"bold"}
               >
                 Value
               </Typography>
@@ -51,10 +52,11 @@ function DealSummary() {
             </Grid>
             <Grid size={3}>
               <Typography
-                variant="h3"
-                fontSize={17}
+                variant="h6"
+                fontSize={14}
                 color="text.primary"
-                mb={0.5}
+                mb={0.3}
+                fontWeight={"bold"}
               >
                 Stage
               </Typography>
@@ -69,10 +71,11 @@ function DealSummary() {
             </Grid>
             <Grid size={3}>
               <Typography
-                variant="h3"
-                fontSize={17}
+                variant="h6"
+                fontSize={14}
                 color="text.primary"
-                mb={0.6}
+                mb={0.3}
+                fontWeight={"bold"}
               >
                 Close Date
               </Typography>
@@ -82,10 +85,11 @@ function DealSummary() {
             </Grid>
             <Grid size={3}>
               <Typography
-                variant="h3"
-                fontSize={17}
+                variant="h6"
+                fontSize={14}
                 color="text.primary"
-                mb={0.6}
+                mb={0.3}
+                fontWeight={"bold"}
               >
                 Days Left
               </Typography>
@@ -102,27 +106,29 @@ function DealSummary() {
             {/* Bottom row - 2 equal columns */}
             <Grid size={6}>
               <Typography
-                variant="h3"
-                fontSize={17}
+                variant="h6"
+                fontSize={14}
                 color="text.primary"
-                mb={0.6}
+                mb={0.3}
+                fontWeight={"bold"}
               >
                 Company
               </Typography>
-              <Typography variant="subtitle1" color="text.secondary">
+              <Typography fontSize={15} variant="subtitle1" color="text.secondary">
                 Acme Corp
               </Typography>
             </Grid>
             <Grid size={6}>
               <Typography
-                variant="h3"
-                fontSize={17}
+                variant="h6"
+                fontSize={14}
                 color="text.primary"
-                mb={0.6}
+                mb={0.3}
+                fontWeight={"bold"}
               >
                 Primary Contact
               </Typography>
-              <Typography variant="subtitle 1" color="text.secondary">
+              <Typography fontSize={15} variant="subtitle 1" color="text.secondary">
                 John Smith
               </Typography>
             </Grid>
